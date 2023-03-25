@@ -108,7 +108,7 @@ const CoverVideo = () => {
             </motion.h1>
           ))}
         </div>
-        <h2>Inspire. Create. Belive</h2>
+        <motion.h2 variants={item}>Inspire. Create. Belive</motion.h2>
       </Title>
       <video src={MainVideo} autoPlay muted loop></video>
     </VideoWrapper>
