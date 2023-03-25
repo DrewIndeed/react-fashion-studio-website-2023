@@ -1,3 +1,4 @@
 import HomeSection from "./Home";
+import AboutSection from "./About";
 
-export { HomeSection };
+export { HomeSection, AboutSection };

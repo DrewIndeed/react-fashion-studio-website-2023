@@ -99,6 +99,7 @@ const CoverVideo = () => {
         <div>
           {targetTitle.split("").map((letter, idx) => (
             <motion.h1
+              key={`${letter}-${idx}`}
               variants={item}
               data-scroll
               data-scroll-speed="8"

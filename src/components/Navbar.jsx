@@ -5,7 +5,8 @@ import styled from "styled-components";
 const NavContainer = styled(motion.div)`
   position: absolute;
   /* left: 50%; */
-  top: ${(props) => (props.click ? "0" : `-${props.theme.navHeight}`)};
+  top: ${(props) =>
+    props.click === "true" ? "0" : `-${props.theme.navHeight}`};
   transition: all 0.3s ease;
   /* transform: translateX(-50%); */
   z-index: 6;
@@ -26,11 +27,19 @@ const MenuBtn = styled.li`
   height: 2.5rem;
   border: none;
   outline: none;
-  clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    80% 100%,
+    20% 100%
+  ); // get from clip path website
+
+  // to position it at the bootm of navbar
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
+
   font-size: ${(props) => props.theme.fontmd};
   font-weight: 600;
   /* border-end-start-radius: 50%; */
@@ -78,7 +87,7 @@ const Navbar = () => {
 
   return (
     <NavContainer
-      click={click}
+      click={click.toString()}
       initial={{ y: `-100%` }}
       animate={{ y: 0 }}
       transition={{ duration: 2, delay: 5 /* 2 */ }}
