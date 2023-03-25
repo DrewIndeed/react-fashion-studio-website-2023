@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import MainVideo from "../assets/WalkingGirl.mp4";
+import { motion } from "framer-motion";
 
 const VideoWrapper = styled.section`
   width: 100%;
@@ -24,7 +25,7 @@ const DarkOverlay = styled.div`
   background-color: ${(props) => `rgba(${props.theme.bodyRgba},0.6)`};
 `;
 
-const Title = styled.div`
+const Title = styled(motion.div)`
   position: absolute;
   top: 0;
   left: 0;
@@ -68,21 +69,43 @@ const Title = styled.div`
   }
 `;
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 5, // 2
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1 },
+};
+
 const CoverVideo = () => {
   const targetTitle = "Tripcy Closet";
   return (
     <VideoWrapper>
       <DarkOverlay />
-      <Title className="noselect">
+      <Title
+        className="noselect"
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
         <div>
           {targetTitle.split("").map((letter, idx) => (
-            <h1
+            <motion.h1
+              variants={item}
               data-scroll
               data-scroll-speed="8"
               data-scroll-delay={0.05 * (targetTitle.length - idx)}
             >
               {letter}
-            </h1>
+            </motion.h1>
           ))}
         </div>
         <h2>Inspire. Create. Belive</h2>

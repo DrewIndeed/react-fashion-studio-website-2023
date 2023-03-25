@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import { useRef } from "react";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
@@ -26,9 +27,11 @@ function App() {
           }
           containerRef={containerRef}
         >
-          <main data-scroll-container ref={containerRef} className="App">
-            <HomeSection />
-          </main>
+          <AnimatePresence>
+            <main data-scroll-container ref={containerRef} className="App">
+              <HomeSection />
+            </main>
+          </AnimatePresence>
         </LocomotiveScrollProvider>
       </ThemeProvider>
     </>
