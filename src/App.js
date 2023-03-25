@@ -1,6 +1,8 @@
+import "locomotive-scroll/dist/locomotive-scroll.css";
 import { useRef } from "react";
-import { ThemeProvider } from "styled-components";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
+import { ThemeProvider } from "styled-components";
+import { HomeSection } from "./sections";
 import GlobalStyles from "./styles/GlobalStyles";
 import { dark } from "./styles/Themes";
 
@@ -25,7 +27,7 @@ function App() {
           containerRef={containerRef}
         >
           <main data-scroll-container ref={containerRef} className="App">
-            App Comp
+            <HomeSection />
           </main>
         </LocomotiveScrollProvider>
       </ThemeProvider>
